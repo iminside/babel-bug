@@ -23,7 +23,7 @@ const myFn = function () {};
 class MyClass {};
 ```
 
-And we have the ability to check the difference, if we might be willing to check what sort of function we are dealing with:
+And if we might be willing to check what sort of function we are dealing with, we have the ability to check the difference with the following steps:
 
 ```javascript
 const isArrowFunction = (fn) => {
@@ -75,6 +75,6 @@ var MyClass = function MyClass() {
 };
 ```
 
-Therefore regular checking via JavaScript runtime wouldn't work anymore.
+Therefore regular checking via JavaScript runtime wouldn't work anymore, because everything becomes functions.
 
 
