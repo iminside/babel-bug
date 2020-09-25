@@ -2,11 +2,22 @@ This repo describes [Babel.js](https://github.com/babel/babel) bug for distingui
 
 # Installation
 
-```
+```bash
 git clone
 npm i
+```
+
+And after installation, for dealing with **bug**:
+
+```bash
 npm run bug
 ```
+
+for dealing with **original** JavaScript behaviour:
+```bash
+npm run original
+```
+
 
 # Description
 
