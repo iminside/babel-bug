@@ -77,4 +77,12 @@ var MyClass = function MyClass() {
 
 Therefore regular checking via JavaScript runtime wouldn't work anymore, because everything becomes functions.
 
+# Screenshots
 
+Before babel transforms
+
+![](https://habrastorage.org/webt/iu/4j/zt/iu4jztsnvsstnaedrr3wdmcjvxw.png)
+
+After
+
+![](https://habrastorage.org/webt/bb/he/u2/bbheu29ij5lh7fcayp31mg9cvyc.png)
