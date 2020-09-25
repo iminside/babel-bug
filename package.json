@@ -8,7 +8,8 @@
     },
     "scripts": {
         "compile": "npx babel ./src/bug.js --out-file ./dist/bug.js",
-        "bug": "npm run compile && node ./dist/bug.js"
+        "bug": "npm run compile && node ./dist/bug.js",
+        "original": "node ./src/bug.js"
     },
     "dependencies": {},
     "devDependencies": {

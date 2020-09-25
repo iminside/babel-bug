@@ -54,4 +54,10 @@ console.log('is arrow : ', isArrowFunction(MyClass))
 console.log('function : ', isRegularFunction(MyClass))
 console.log('is class : ', isClass(MyClass))
 
-console.log('I create myArrow instance', new myArrow())
+try {
+    const instanceFromArrowFunction = new myArrow();
+    console.log('\nSeems that is a Bug, cause I can create myArrow instance\n', instanceFromArrowFunction, '\n');
+} catch (error) {
+    console.log('\nAnd if you see this,\n\ttherefore I can\'t create myArrow instance,\n\tand everything is ok:\n');
+    console.error(error, '\n');
+}
