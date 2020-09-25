@@ -1,0 +1,20 @@
+{
+    "name": "babel-bug",
+    "version": "0.0.0",
+    "author": "Denis Churbanov",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/denis-churbanov/babel-bug.git"
+    },
+    "scripts": {
+        "compile": "npx babel ./src/bug.js --out-file ./dist/bug.js",
+        "bug": "npm run compile && node ./dist/bug.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.10.4",
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "core-js": "^3.6.5"
+    }
+}
