@@ -1,7 +1,23 @@
-const myArrow = () => {}
-const myFn = function () {}
+const myArrow = () => {};
+const myFn = function () {};
+class MyClass {};
 
-class MyClass {}
+
+class OtherClass {
+    constructor() {
+        this.newTarget = new.target;
+    }
+
+    get myProp () {
+        return 123;
+    }
+}
+
+class ExtendedOtherClass extends OtherClass {
+    get otherProp () {
+        return 321;
+    }
+}
 
 const isArrowFunction = (fn) => {
     if (typeof fn !== 'function') {
@@ -54,6 +70,16 @@ console.log('is arrow : ', isArrowFunction(MyClass))
 console.log('function : ', isRegularFunction(MyClass))
 console.log('is class : ', isClass(MyClass))
 
+console.log('--- other class ---')
+console.log('is arrow : ', isArrowFunction(OtherClass))
+console.log('function : ', isRegularFunction(OtherClass))
+console.log('is class : ', isClass(OtherClass))
+
+console.log('--- other class ---')
+console.log('is arrow : ', isArrowFunction(ExtendedOtherClass))
+console.log('function : ', isRegularFunction(ExtendedOtherClass))
+console.log('is class : ', isClass(ExtendedOtherClass))
+
 try {
     const instanceFromArrowFunction = new myArrow();
     console.log('\nSeems that is a Bug, cause I can create myArrow instance\n', instanceFromArrowFunction, '\n');
@@ -61,3 +87,33 @@ try {
     console.log('\nAnd if you see this,\n\ttherefore I can\'t create myArrow instance,\n\tand everything is ok:\n');
     console.error(error, '\n');
 }
+
+console.log('\n--- an example of how it might be implemented\n\n');
+
+console.log('--- workingArrow ---')
+
+const workingArrow = () => {};
+Object.defineProperty(workingArrow, 'prototype', {
+    value: undefined
+});
+
+console.log('is arrow : ', isArrowFunction(workingArrow))
+console.log('function : ', isRegularFunction(workingArrow))
+console.log('is class : ', isClass(workingArrow))
+
+console.log('\n');
+
+console.log('--- WorkingClass ---')
+
+class WorkingClass {}
+Object.defineProperty(WorkingClass, 'prototype', {
+    writable: false
+});
+
+console.log(Object.getOwnPropertyDescriptor(WorkingClass, 'prototype'));
+
+console.log('is arrow : ', isArrowFunction(WorkingClass))
+console.log('function : ', isRegularFunction(WorkingClass))
+console.log('is class : ', isClass(WorkingClass))
+
+console.log('\n');
