@@ -97,3 +97,25 @@ Before babel transforms
 After
 
 ![](https://habrastorage.org/webt/bb/he/u2/bbheu29ij5lh7fcayp31mg9cvyc.png)
+
+# How to implement correct behaviour?
+
+### for Arrow Functions
+
+```javascript
+const workingArrow = () => {};
+// right after arrow function definition
+Object.defineProperty(workingArrow, 'prototype', {
+    value: undefined
+});
+```
+
+### for Classes
+
+```javascript
+class WorkingClass {}
+// right after class definition
+Object.defineProperty(WorkingClass, 'prototype', {
+    writable: false
+});
+```
